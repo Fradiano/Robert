@@ -44,7 +44,9 @@ class App extends React.Component {
   artikelChecken = (artikel) => {
     // ToDo: implementiere diese Methode
     // artikel.gekauft 'umpolen'
+    artikel.gekauft = !artikel.gekauft
     // 'aktion' abhängig von 'artikel.gekauft' auf "erledigt" oder "reaktiviert" setzen
+    this.setState(this.state)
     // App.informieren mit 'aktion'
     // 'state' aktualisieren
   }
@@ -146,7 +148,8 @@ class App extends React.Component {
         <hr/>
 
         <footer>
-          <button className="mdc-button mdc-button--raised">
+          <button className="mdc-button mdc-button--raised"
+                  onClick={() => this.setState({showGruppenDialog: true})}>
             <span className="material-icons">bookmark_add</span>
             <span className="mdc-button__ripple"></span> Gruppen
           </button>

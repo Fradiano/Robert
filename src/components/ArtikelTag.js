@@ -53,7 +53,7 @@ class ArtikelTag extends React.Component {
           : ""
         }
         <i className="material-icons"
-           onClick={this.props.deleteHandler}>delete</i></dd>
+           onClick={this.props.deleteHandler}>close</i></dd>
     )
 
     // erlaubt das Ändern des Namens

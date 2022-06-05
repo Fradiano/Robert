@@ -5,7 +5,7 @@
   src: url(../fonts/material-fonts.woff2) format('woff2');
 }
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'inter';
   font-style: normal;
   font-weight: 500;
   src: url(../fonts/Roboto500.woff2) format('woff2');
