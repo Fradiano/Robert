@@ -3,6 +3,7 @@ import Modell from '../model/Shopping'
 import GruppeBearbeitenTag from "./GruppeBearbeitenTag";
 import gruppe from "../model/Gruppe";
 
+// pop up fenster um gruppen zu bearbeiten
 class GruppenDialog extends React.Component {
   constructor(props) {
     super(props)
@@ -11,6 +12,7 @@ class GruppenDialog extends React.Component {
     }
   }
 
+  //fügt gruppen hinzu
   gruppeHinzufuegen() {
     let eingabe = document.getElementById("eingabe")
     let gruppenName = eingabe.value.trim()
@@ -22,11 +24,13 @@ class GruppenDialog extends React.Component {
     eingabe.focus()
   }
 
+  //entfernt gruppe
   gruppeEntfernen(name) {
     Modell.gruppeEntfernen(name)
     this.setState({gruppenListe: Modell.gruppenListe})
   }
 
+  // rendert UI
   render() {
     const gruppenListe = []
     for (let gruppe of this.state.gruppenListe) {
@@ -38,6 +42,7 @@ class GruppenDialog extends React.Component {
       )
     }
 
+  
     return (
       <div className="mdc-dialog mdc-dialog--open">
         <div className="mdc-dialog__container">

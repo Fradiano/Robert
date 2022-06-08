@@ -1,5 +1,6 @@
 import React from 'react'
 
+//der button um gruppen zu bearbeiten
 class GruppeBearbeitenTag extends React.Component {
   constructor(props) {
     super(props)
@@ -9,12 +10,17 @@ class GruppeBearbeitenTag extends React.Component {
     }
   }
 
+  
+  /** kümmert sich um änderungen von GruppenName
+   * @param  {} event
+   */
   handleChange(event) {
     // ToDo: implementieren
     let gruppenName = event.target.value
     this.setState({newName: gruppenName})
   }
 
+  //benennt gruppe um
   gruppeUmbenennen(gruppe, event) {
     if (event && event.key != "Enter") return
     // ToDo: implementieren
@@ -22,6 +28,7 @@ class GruppeBearbeitenTag extends React.Component {
     this.setState({isEditing : false})
   }
 
+  // rendert UI
   render() {
     const gruppe = this.props.gruppe
 

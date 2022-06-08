@@ -1,16 +1,21 @@
 import React from 'react'
 import ArtikelTag from './ArtikelTag'
 
+// stellt die gruppe dar
 class GruppenTag extends React.Component {
   constructor(props) {
     super(props)
   }
 
+  /**enternt artikel
+   * @param  {} name
+   */
   artikelEntfernen(name) {
     this.props.gruppe.artikelEntfernen(name)
     this.props.aktiveGruppeHandler(this.props.gruppe)
   }
 
+  //rendert UI
   render() {
     const gruppe = this.props.gruppe
 

@@ -31,6 +31,7 @@ class ArtikelTag extends React.Component {
     this.setState({isEditing: false})
   }
 
+  // rendert die UI
   render() {
     const artikel = this.props.artikel
     let artikelName = artikel.name

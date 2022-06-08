@@ -3,7 +3,7 @@ import GruppenTag from './components/GruppenTag'
 import GruppenDialog from './components/GruppenDialog'
 import Modell from './model/Shopping'
 
-
+// die hautptklasse der gesamten app
 class App extends React.Component {
   constructor(props) {
     super(props)
@@ -17,30 +17,38 @@ class App extends React.Component {
     }
   }
 
+/** erstellt und bennent die gruppen
+ */
+
   initialisieren() {
-    let fantasy = Modell.gruppeHinzufuegen("Fantasy")
-    let film1 = fantasy.artikelHinzufuegen("Der Dunkle Kristall")
-    film1.gekauft = true
-    fantasy.artikelHinzufuegen("Die Barbaren")
-    let scifi = Modell.gruppeHinzufuegen("Science Fiction")
-    let film2 = scifi.artikelHinzufuegen("Alita - Battle Angel")
-    film2.gekauft = true
-    scifi.artikelHinzufuegen("Mad Max - Fury Road")
-    let dokus = Modell.gruppeHinzufuegen("Dokumentationen")
-    let film3 = dokus.artikelHinzufuegen("Endgame - Blaupause für die Globale Versklavung")
-    film3.gekauft = true
-    dokus.artikelHinzufuegen("Die Kabale")
+    let fantasy = Modell.gruppeHinzufuegen("Hulk")
+    let film1 = fantasy.artikelHinzufuegen("Der unglaubliche Hulk")
+    film1.gekauft = false
+    fantasy.artikelHinzufuegen("Der glaubliche Hulk")
+    let scifi = Modell.gruppeHinzufuegen("Thor")
+    let film2 = scifi.artikelHinzufuegen("Thor")
+    let film3 = scifi.artikelHinzufuegen("Thor the dark Kingdom")
+    film2.gekauft = false
+    scifi.artikelHinzufuegen("Thor Tag der Entscheidung")
+    let dokus = Modell.gruppeHinzufuegen("Iron Man")
+    let film4 = dokus.artikelHinzufuegen("Iron Man")
+    film3.gekauft = false
+    dokus.artikelHinzufuegen("Iron Man2")
   }
 
+//  noch zu sehen auf und zu klappen
   einkaufenAufZuKlappen() {
     let neuerZustand = !this.state.einkaufenAufgeklappt
     this.setState({einkaufenAufgeklappt: neuerZustand})
   }
 
+// schon gesehen auf und zu klappen
   erledigtAufZuKlappen() {
     this.setState({erledigtAufgeklappt: !this.state.erledigtAufgeklappt})
   }
-
+  /** hackt die artikel ab
+   * @param  {} artikel
+   */
   artikelChecken = (artikel) => {
     // ToDo: implementiere diese Methode
     // artikel.gekauft 'umpolen'
@@ -51,6 +59,7 @@ class App extends React.Component {
     // 'state' aktualisieren
   }
 
+// fügt artikel noch zu sehen hinzu
   artikelHinzufuegen() {
     // ToDo: implementiere diese Methode
     const eingabe = document.getElementById("artikelEingabe")
@@ -63,12 +72,14 @@ class App extends React.Component {
     eingabe.focus()
   }
 
+// visualisiert die aktuell gewählte gruppe
   setAktiveGruppe(gruppe) {
     Modell.aktiveGruppe = gruppe
     Modell.informieren("[App] Gruppe \"" + gruppe.name + "\" ist nun aktiv")
     this.setState({aktiveGruppe: Modell.aktiveGruppe})
   }
 
+  // rendert die 
   render() {
     let nochZuKaufen = []
     if (this.state.einkaufenAufgeklappt == true) {
@@ -124,7 +135,7 @@ class App extends React.Component {
 
         <main>
           <section>
-            <h2>Noch zu kaufen
+            <h2>Ungesehen
               <i onClick={() => this.einkaufenAufZuKlappen()} className="material-icons">
                 {this.state.einkaufenAufgeklappt ? 'expand_more' : 'expand_less'}
               </i>
@@ -135,7 +146,7 @@ class App extends React.Component {
           </section>
           <hr/>
           <section>
-            <h2>Schon gekauft
+            <h2>Gesehen
               <i onClick={() => this.erledigtAufZuKlappen()} className="material-icons">
                 {this.state.erledigtAufgeklappt ? 'expand_more' : 'expand_less'}
               </i>
